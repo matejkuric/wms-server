@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WMS_Capabilities version="1.3.0"
+  xmlns="http://www.opengis.net/wms"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:esri_wms="http://www.esri.com/wms"
+  xsi:schemaLocation="http://www.opengis.net/wms http://schemas.opengis.net/wms/1.3.0/capabilities_1_3_0.xsd http://www.esri.com/wms https://zbgisws.skgeodesy.sk/zbgis_vyskopis_wms_featureinfo/service.svc/get?version=1.3.0%26service=WMS%26request=GetSchemaExtension">
+  <Service>
+    <Name><![CDATA[WMS]]></Name>
+    <Title><![CDATA[SK_UGKK_ZBGIS_WMS_Vyskopis]]></Title>
+    <Abstract><![CDATA[A.2.2.6 Zobrazenie atribútových údajov kategórie výškopis zo súboru objektov ZBGIS.]]></Abstract>
+    <KeywordList><Keyword><![CDATA[WMS, Výškopis]]></Keyword></KeywordList>
+    <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://zbgisws.skgeodesy.sk/zbgis_vyskopis_wms_featureinfo/service.svc/get?"/>
+    <ContactInformation>
+      <ContactPersonPrimary>
+        <ContactPerson><![CDATA[GKÚ]]></ContactPerson>
+        <ContactOrganization><![CDATA[Geodetický a kartografický ústav Bratislava]]></ContactOrganization>
+      </ContactPersonPrimary>
+      <ContactPosition><![CDATA[vedúci odboru]]></ContactPosition>
+      <ContactAddress>
+        <AddressType><![CDATA[Poštová adresa]]></AddressType>
+        <Address><![CDATA[Chlumeckého 4]]></Address>
+        <City><![CDATA[Bratislava]]></City>
+        <StateOrProvince><![CDATA[Bratislava II]]></StateOrProvince>
+        <PostCode><![CDATA[82745]]></PostCode>
+        <Country><![CDATA[Slovenská Republika]]></Country>
+      </ContactAddress>
+      <ContactVoiceTelephone><![CDATA[+421 2 2081 6225]]></ContactVoiceTelephone>
+      <ContactFacsimileTelephone><![CDATA[+421 2 4342 7511]]></ContactFacsimileTelephone>
+      <ContactElectronicMailAddress><![CDATA[gkuzc@skgeodesy.sk]]></ContactElectronicMailAddress>
+    </ContactInformation>
+    <Fees><![CDATA[bez poplatkov]]></Fees>
+    <AccessConstraints><![CDATA[© Úrad geodézie, kartografie a katastra SR]]></AccessConstraints>
+    <MaxWidth>4096</MaxWidth>
+    <MaxHeight>4096</MaxHeight>
+  </Service>
+  <Capability>
+    <Request>
+      <GetCapabilities>
+        <Format>application/vnd.ogc.wms_xml</Format>
+        <Format>text/xml</Format>
+        <DCPType>
+          <HTTP><Get><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://zbgisws.skgeodesy.sk/zbgis_vyskopis_wms_featureinfo/service.svc/get?"/></Get></HTTP>
+        </DCPType>
+      </GetCapabilities>
+      <GetMap>
+        <Format>image/bmp</Format>
+        <Format>image/jpeg</Format>
+        <Format>image/tiff</Format>
+        <Format>image/png</Format>
+        <Format>image/png8</Format>
+        <Format>image/png24</Format>
+        <Format>image/png32</Format>
+        <Format>image/gif</Format>
+        <Format>image/svg+xml</Format>
+        <DCPType>
+          <HTTP><Get><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://zbgisws.skgeodesy.sk/zbgis_vyskopis_wms_featureinfo/service.svc/get?"/></Get></HTTP>
+        </DCPType>
+      </GetMap>
+      <GetFeatureInfo>
+        <Format>application/vnd.esri.wms_raw_xml</Format>
+        <Format>application/vnd.esri.wms_featureinfo_xml</Format>
+        <Format>application/vnd.ogc.wms_xml</Format>
+        <Format>application/geojson</Format>
+        <Format>text/xml</Format>
+        <Format>text/html</Format>
+        <Format>text/plain</Format>
+        <DCPType>
+          <HTTP><Get><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://zbgisws.skgeodesy.sk/zbgis_vyskopis_wms_featureinfo/service.svc/get?"/></Get></HTTP>
+        </DCPType>
+      </GetFeatureInfo>
+      <esri_wms:GetStyles>
+        <Format>application/vnd.ogc.sld+xml</Format>
+        <DCPType>
+          <HTTP><Get><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://zbgisws.skgeodesy.sk/zbgis_vyskopis_wms_featureinfo/service.svc/get?"/></Get></HTTP>
+        </DCPType>
+      </esri_wms:GetStyles>
+    </Request>
+    <Exception>
+      <Format>application/vnd.ogc.se_xml</Format>
+      <Format>application/vnd.ogc.se_inimage</Format>
+      <Format>application/vnd.ogc.se_blank</Format>
+      <Format>text/xml</Format>
+      <Format>XML</Format>
+    </Exception>
+    <Layer>
+      <Title><![CDATA[Zobrazovacia služba WMS - Výškopis]]></Title>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:5514</CRS>
+ <!-- alias 5514 -->
+<CRS>EPSG:102067</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>16.660980</westBoundLongitude><eastBoundLongitude>22.626865</eastBoundLongitude><southBoundLatitude>47.638420</southBoundLatitude><northBoundLatitude>49.719236</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="16.660980" miny="47.638420" maxx="22.626865" maxy="49.719236"/>
+<BoundingBox CRS="EPSG:4326" minx="47.638420" miny="16.660980" maxx="49.719236" maxy="22.626865"/>
+<BoundingBox CRS="EPSG:5514" minx="-591311.252500" miny="-1335593.220000" maxx="-164949.810000" maxy="-1132208.103000"/>
+<BoundingBox CRS="EPSG:102067" minx="-591311.252500" miny="-1335593.220000" maxx="-164949.810000" maxy="-1132208.103000"/>
+      <Layer queryable="1">
+        <Name>0</Name>
+        <Title><![CDATA[Slovenská republika]]></Title>
+        <Abstract><![CDATA[]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:5514</CRS>
+ <!-- alias 5514 -->
+<CRS>EPSG:102067</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>16.661744</westBoundLongitude><eastBoundLongitude>22.620033</eastBoundLongitude><southBoundLatitude>47.645875</southBoundLatitude><northBoundLatitude>49.714681</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="16.661744" miny="47.645875" maxx="22.620033" maxy="49.714681"/>
+<BoundingBox CRS="EPSG:4326" minx="47.645875" miny="16.661744" maxx="49.714681" maxy="22.620033"/>
+<BoundingBox CRS="EPSG:5514" minx="-591308.430000" miny="-1334760.160000" maxx="-165436.880000" maxy="-1132700.490000"/>
+<BoundingBox CRS="EPSG:102067" minx="-591308.430000" miny="-1334760.160000" maxx="-165436.880000" maxy="-1132700.490000"/>
+        <Style>
+          <Name>default</Name>
+          <Title>0</Title>
+          <LegendURL width="18" height="18">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://zbgisws.skgeodesy.sk/zbgis_vyskopis_wms_featureinfo/service.svc/get?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=0" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>23624.456845</MinScaleDenominator>
+      </Layer>
+      <Layer queryable="1">
+        <Name>1</Name>
+        <Title><![CDATA[Vrstevnica]]></Title>
+        <Abstract><![CDATA[]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:5514</CRS>
+ <!-- alias 5514 -->
+<CRS>EPSG:102067</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>16.662979</westBoundLongitude><eastBoundLongitude>22.626865</eastBoundLongitude><southBoundLatitude>47.638555</southBoundLatitude><northBoundLatitude>49.719212</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="16.662979" miny="47.638555" maxx="22.626865" maxy="49.719212"/>
+<BoundingBox CRS="EPSG:4326" minx="47.638555" miny="16.662979" maxx="49.719212" maxy="22.626865"/>
+<BoundingBox CRS="EPSG:5514" minx="-591165.820000" miny="-1335593.220000" maxx="-164949.810000" maxy="-1132210.790000"/>
+<BoundingBox CRS="EPSG:102067" minx="-591165.820000" miny="-1335593.220000" maxx="-164949.810000" maxy="-1132210.790000"/>
+        <Style>
+          <Name>default</Name>
+          <Title>1</Title>
+          <LegendURL width="102" height="90">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://zbgisws.skgeodesy.sk/zbgis_vyskopis_wms_featureinfo/service.svc/get?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=1" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+        <MaxScaleDenominator>18898.809524</MaxScaleDenominator>
+      </Layer>
+      <Layer queryable="1">
+        <Title><![CDATA[Vrstevnica popis]]></Title>
+        <Abstract><![CDATA[]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:5514</CRS>
+ <!-- alias 5514 -->
+<CRS>EPSG:102067</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>16.730384</westBoundLongitude><eastBoundLongitude>22.622692</eastBoundLongitude><southBoundLatitude>47.693362</southBoundLatitude><northBoundLatitude>49.719196</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="16.730384" miny="47.693362" maxx="22.622692" maxy="49.719196"/>
+<BoundingBox CRS="EPSG:4326" minx="47.693362" miny="16.730384" maxx="49.719196" maxy="22.622692"/>
+<BoundingBox CRS="EPSG:5514" minx="-586252.204700" miny="-1329972.923100" maxx="-165100.099700" maxy="-1132208.103000"/>
+<BoundingBox CRS="EPSG:102067" minx="-586252.204700" miny="-1329972.923100" maxx="-165100.099700" maxy="-1132208.103000"/>
+        <MinScaleDenominator>7087.053571</MinScaleDenominator>
+        <MaxScaleDenominator>14174.107143</MaxScaleDenominator>
+      <Layer>
+        <Name>3</Name>
+        <Title><![CDATA[Default]]></Title>
+        <Abstract><![CDATA[]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:5514</CRS>
+ <!-- alias 5514 -->
+<CRS>EPSG:102067</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>16.730384</westBoundLongitude><eastBoundLongitude>22.622692</eastBoundLongitude><southBoundLatitude>47.693362</southBoundLatitude><northBoundLatitude>49.719196</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="16.730384" miny="47.693362" maxx="22.622692" maxy="49.719196"/>
+<BoundingBox CRS="EPSG:4326" minx="47.693362" miny="16.730384" maxx="49.719196" maxy="22.622692"/>
+<BoundingBox CRS="EPSG:5514" minx="-586252.204700" miny="-1329972.923100" maxx="-165100.099700" maxy="-1132208.103000"/>
+<BoundingBox CRS="EPSG:102067" minx="-586252.204700" miny="-1329972.923100" maxx="-165100.099700" maxy="-1132208.103000"/>
+        <Style>
+          <Name>default</Name>
+          <Title>3</Title>
+          <LegendURL width="0" height="0">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://zbgisws.skgeodesy.sk/zbgis_vyskopis_wms_featureinfo/service.svc/get?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=3" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+      </Layer>
+      </Layer>
+      <Layer queryable="1">
+        <Name>4</Name>
+        <Title><![CDATA[Vrstevnica výber]]></Title>
+        <Abstract><![CDATA[]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:5514</CRS>
+ <!-- alias 5514 -->
+<CRS>EPSG:102067</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>16.662979</westBoundLongitude><eastBoundLongitude>22.626865</eastBoundLongitude><southBoundLatitude>47.638555</southBoundLatitude><northBoundLatitude>49.719212</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="16.662979" miny="47.638555" maxx="22.626865" maxy="49.719212"/>
+<BoundingBox CRS="EPSG:4326" minx="47.638555" miny="16.662979" maxx="49.719212" maxy="22.626865"/>
+<BoundingBox CRS="EPSG:5514" minx="-591165.820000" miny="-1335593.220000" maxx="-164949.810000" maxy="-1132210.790000"/>
+<BoundingBox CRS="EPSG:102067" minx="-591165.820000" miny="-1335593.220000" maxx="-164949.810000" maxy="-1132210.790000"/>
+        <Style>
+          <Name>default</Name>
+          <Title>4</Title>
+          <LegendURL width="102" height="36">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://zbgisws.skgeodesy.sk/zbgis_vyskopis_wms_featureinfo/service.svc/get?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=4" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>18899.754464</MinScaleDenominator>
+        <MaxScaleDenominator>141741.071429</MaxScaleDenominator>
+      </Layer>
+      <Layer queryable="1">
+        <Title><![CDATA[Vrstevnica popis (výber)]]></Title>
+        <Abstract><![CDATA[]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:5514</CRS>
+ <!-- alias 5514 -->
+<CRS>EPSG:102067</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>16.730384</westBoundLongitude><eastBoundLongitude>22.622692</eastBoundLongitude><southBoundLatitude>47.693362</southBoundLatitude><northBoundLatitude>49.719196</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="16.730384" miny="47.693362" maxx="22.622692" maxy="49.719196"/>
+<BoundingBox CRS="EPSG:4326" minx="47.693362" miny="16.730384" maxx="49.719196" maxy="22.622692"/>
+<BoundingBox CRS="EPSG:5514" minx="-586252.204700" miny="-1329972.923100" maxx="-165100.099700" maxy="-1132208.103000"/>
+<BoundingBox CRS="EPSG:102067" minx="-586252.204700" miny="-1329972.923100" maxx="-165100.099700" maxy="-1132208.103000"/>
+        <MinScaleDenominator>18898.809524</MinScaleDenominator>
+        <MaxScaleDenominator>33072.916667</MaxScaleDenominator>
+      <Layer>
+        <Name>6</Name>
+        <Title><![CDATA[Default]]></Title>
+        <Abstract><![CDATA[]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:5514</CRS>
+ <!-- alias 5514 -->
+<CRS>EPSG:102067</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>16.730384</westBoundLongitude><eastBoundLongitude>22.622692</eastBoundLongitude><southBoundLatitude>47.693362</southBoundLatitude><northBoundLatitude>49.719196</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="16.730384" miny="47.693362" maxx="22.622692" maxy="49.719196"/>
+<BoundingBox CRS="EPSG:4326" minx="47.693362" miny="16.730384" maxx="49.719196" maxy="22.622692"/>
+<BoundingBox CRS="EPSG:5514" minx="-586252.204700" miny="-1329972.923100" maxx="-165100.099700" maxy="-1132208.103000"/>
+<BoundingBox CRS="EPSG:102067" minx="-586252.204700" miny="-1329972.923100" maxx="-165100.099700" maxy="-1132208.103000"/>
+        <Style>
+          <Name>default</Name>
+          <Title>6</Title>
+          <LegendURL width="0" height="0">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://zbgisws.skgeodesy.sk/zbgis_vyskopis_wms_featureinfo/service.svc/get?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=6" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+      </Layer>
+      </Layer>
+      <Layer queryable="1">
+        <Name>7</Name>
+        <Title><![CDATA[Výšková kóta]]></Title>
+        <Abstract><![CDATA[]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:5514</CRS>
+ <!-- alias 5514 -->
+<CRS>EPSG:102067</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>16.676288</westBoundLongitude><eastBoundLongitude>22.619754</eastBoundLongitude><southBoundLatitude>47.652235</southBoundLatitude><northBoundLatitude>49.713234</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="16.676288" miny="47.652235" maxx="22.619754" maxy="49.713234"/>
+<BoundingBox CRS="EPSG:4326" minx="47.652235" miny="16.676288" maxx="49.713234" maxy="22.619754"/>
+<BoundingBox CRS="EPSG:5514" minx="-590265.367000" miny="-1334156.987800" maxx="-165440.292100" maxy="-1132861.403600"/>
+<BoundingBox CRS="EPSG:102067" minx="-590265.367000" miny="-1334156.987800" maxx="-165440.292100" maxy="-1132861.403600"/>
+        <Style>
+          <Name>default</Name>
+          <Title>7</Title>
+          <LegendURL width="27" height="27">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://zbgisws.skgeodesy.sk/zbgis_vyskopis_wms_featureinfo/service.svc/get?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=7" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+        <MaxScaleDenominator>23623.511905</MaxScaleDenominator>
+      </Layer>
+      <Layer queryable="1">
+        <Name>8</Name>
+        <Title><![CDATA[ZBGIS®]]></Title>
+        <Abstract><![CDATA[]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:5514</CRS>
+ <!-- alias 5514 -->
+<CRS>EPSG:102067</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>16.661701</westBoundLongitude><eastBoundLongitude>22.620033</eastBoundLongitude><southBoundLatitude>47.645856</southBoundLatitude><northBoundLatitude>49.714709</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="16.661701" miny="47.645856" maxx="22.620033" maxy="49.714709"/>
+<BoundingBox CRS="EPSG:4326" minx="47.645856" miny="16.661701" maxx="49.714709" maxy="22.620033"/>
+<BoundingBox CRS="EPSG:5514" minx="-591311.252500" miny="-1334762.042500" maxx="-165436.882500" maxy="-1132697.422500"/>
+<BoundingBox CRS="EPSG:102067" minx="-591311.252500" miny="-1334762.042500" maxx="-165436.882500" maxy="-1132697.422500"/>
+        <Style>
+          <Name>default</Name>
+          <Title>8</Title>
+          <LegendURL width="18" height="18">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://zbgisws.skgeodesy.sk/zbgis_vyskopis_wms_featureinfo/service.svc/get?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=8" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+      </Layer>
+    </Layer>
+  </Capability>
+</WMS_Capabilities>
