@@ -6,7 +6,7 @@ var PORT = 3000
 
 server.get('/getCapabilities', function (request, response) {
     console.log(response.sendFile)
-   response.sendFile(path.join(__dirname + '\\Capabilites.xml'))
+   response.sendFile(path.join(__dirname + '\\antropogene_moje.xml'))
    
 })
 
@@ -20,9 +20,9 @@ server.get("/query-test", function(request, response) {
     var params = request.query;
     console.log(params);
 
-    if(params.service === 'wms' && params.request === 'GetCapabilities') {
-     response.sendFile(path.join(__dirname , '.\\Capabilities.xml'))
-    } else if(params.service === 'wms' && params.request === 'GetMap') {
+    if(params.SERVICE === 'wms' && params.REQUEST === 'GetCapabilities') {
+     response.sendFile(path.join(__dirname , '.\\antropogene_moje.xml'))
+    } else if(params.SERVICE === 'wms' && params.REQUEST === 'GetMap') {
       console.log('idem robit get map')
     } else {
       response.send('nepodporovana metoda')
