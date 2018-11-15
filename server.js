@@ -14,7 +14,7 @@ console.log(generateImage);
     console.log(params);
 
     if(params.SERVICE === 'WMS' && params.REQUEST === 'GetCapabilities') {
-     response.sendFile(path.join(__dirname , 'getCapa.xml'))
+     response.sendFile(path.join(__dirname , 'getCapab.xml'))
     } else if(params.SERVICE === 'WMS' && params.REQUEST === 'GetMap') {
       generateImage(params, response.sendFile.bind(response))
     } else {

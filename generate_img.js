@@ -20,8 +20,8 @@ var proj = "+proj=krovak +lat_0=49.5 +lon_0=24.83333333333333 +alpha=30.28813972
 
 var style_budovy='<Style name="style_budovy">' + 
 '<Rule>' +
-    '<LineSymbolizer stroke="black" stroke-width="0.1" />' + 
-    '<PolygonSymbolizer fill="#f2cfaf"  />' + 
+    '<LineSymbolizer stroke="#110c08" stroke-width="0.2" />' + 
+    '<PolygonSymbolizer fill="#ea8428"  />' + 
 '</Rule>' +
 '</Style>' 
 
@@ -32,7 +32,7 @@ var style_cesty='<Style name="style_cesty">' +
 '</Style>' 
 
 
-var schema = '<Map background-color="transparent" srs="'+proj+'">' +
+var schema = '<Map background-color="#e1e0e0" srs="'+proj+'">' +
                 (addBudovy ? style_budovy : '') +
                 (addCesty ? style_cesty : '') +
 
@@ -44,7 +44,7 @@ var schema = '<Map background-color="transparent" srs="'+proj+'">' +
                     '</Datasource>' +
                 '</Layer>' +
                 '<Layer name="budovy" srs="'+proj+'">' +
-                    '<StyleName>style_cesty</StyleName>' +
+                    '<StyleName>style_budovy</StyleName>' +
                     '<Datasource>' +
                         '<Parameter name="file">' + path.join( __dirname, 'data/budovy.shp' ) +'</Parameter>' +
                            '<Parameter name="type">shape</Parameter>' +
