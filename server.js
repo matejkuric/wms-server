@@ -1,31 +1,24 @@
 var express = require("express");
 var server = express();
 var path = require("path");
-var PORT = 3000
+var PORT = 3000;
+var fs = require("fs");
+var mapnik = require("mapnik");
+var generateImage = require('./generate_img.js');
 
+console.log(generateImage);
 
-server.get('/getCapabilities', function (request, response) {
-    console.log(response.sendFile)
-   response.sendFile(path.join(__dirname + '\\antropogene_moje.xml'))
-   
-})
-
-
-server.get("/query-test", function(request, response) {
-    console.log(request.query);
-    response.send(request.query);
-  });
 
   server.get("/wms", function(request, response) {
     var params = request.query;
     console.log(params);
 
-    if(params.SERVICE === 'wms' && params.REQUEST === 'GetCapabilities') {
-     response.sendFile(path.join(__dirname , '.\\antropogene_moje.xml'))
-    } else if(params.SERVICE === 'wms' && params.REQUEST === 'GetMap') {
-      console.log('idem robit get map')
+    if(params.SERVICE === 'WMS' && params.REQUEST === 'GetCapabilities') {
+     response.sendFile(path.join(__dirname , 'getCapa.xml'))
+    } else if(params.SERVICE === 'WMS' && params.REQUEST === 'GetMap') {
+      generateImage(params, response.sendFile.bind(response))
     } else {
-      response.send('nepodporovana metoda')
+      response.send('Nepodporovaná metóda.')
     }
   });
 
@@ -34,3 +27,8 @@ server.get("/query-test", function(request, response) {
 server.listen(PORT, function() {
     console.log("Server listening on port " + PORT + "!");
   });
+
+
+
+
+  
