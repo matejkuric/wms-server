@@ -8,6 +8,7 @@ var generateImage = require('./generate_img.js');
 
 console.log(generateImage);
 
+server.use(express.static('icon'))
 
   server.get("/wms", function(request, response) {
     var params = request.query;

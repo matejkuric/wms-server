@@ -5,12 +5,13 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "nodemon server.js --watch ."
   },
   "author": "Kuro",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.4",
-    "mapnik": "^3.6.2"
+    "mapnik": "^3.6.2",
+    "nodemon": "^1.18.6"
   }
 }
