@@ -19,6 +19,9 @@ var addLavicky = arg.LAYERS.includes('lavicky');
 var addCintorin = arg.LAYERS.includes('cintorin');
 var addOdpad = arg.LAYERS.includes('odpad');
 var addParkovisko = arg.LAYERS.includes('parkovisko');
+var addChodniky = arg.LAYERS.includes('chodniky');
+var addSkola = arg.LAYERS.includes('skola');
+var addZastavky = arg.LAYERS.includes('zastavky');
 
 var proj = "+proj=krovak +lat_0=49.5 +lon_0=24.83333333333333 +alpha=30.28813972222222 +k=0.9999 +x_0=0 +y_0=0 +ellps=bessel +towgs84=589,76,480,0,0,0,0 +units=m +no_defs";
 
@@ -68,13 +71,15 @@ var style_lavicky='<Style name="style_lavicky">' +
 '<Rule>' +
     '<MinScaleDenominator>1</MinScaleDenominator>' +
     '<MaxScaleDenominator>1500</MaxScaleDenominator>' +
-    '<PointSymbolizer file= "./png_symbols/bench2.png" transform="scale(0.04,0.04)" />' + 
-'</Rule>' +
+    '<PointSymbolizer file= "./png_symbols/bench2.png" transform="scale(0.04,0.04)"/>' + 
+    "<Filter> [STAV] = 'Nepoškodená' </Filter>" +
+    '</Rule>' +
 '<Rule>' +
     '<MinScaleDenominator>1501</MinScaleDenominator>' +
     '<MaxScaleDenominator>3000</MaxScaleDenominator>' +
-    '<PointSymbolizer file= "./png_symbols/bench2.png" transform="scale(0.02,0.02)" />' + 
-'</Rule>' +
+    '<PointSymbolizer file= "./png_symbols/bench2.png" transform="scale(0.02,0.02)"/>' + 
+    "<Filter> [STAV] = 'Nepoškodená' </Filter>" +
+    '</Rule>' +
 '</Style>' 
 
 var style_cintorin='<Style name="style_cintorin">' + 
@@ -123,6 +128,71 @@ var style_parkovisko='<Style name="style_parkovisko">' +
 '</Rule>' +
 '</Style>' 
 
+var style_chodniky='<Style name="style_chodniky">' + 
+'<Rule>' +
+    '<LineSymbolizer stroke="#ec2f5e" stroke-width="6" stroke-dasharray="6,2" />' + 
+    '<MinScaleDenominator>1</MinScaleDenominator>' +
+    '<MaxScaleDenominator>300</MaxScaleDenominator>' +
+'</Rule>' +
+'<Rule>' +
+    '<LineSymbolizer stroke="#ec2f5e" stroke-width="5" stroke-dasharray="6,2" />' + 
+    '<MinScaleDenominator>301</MinScaleDenominator>' +
+    '<MaxScaleDenominator>900</MaxScaleDenominator>' +
+'</Rule>' +
+'<Rule>' +
+    '<LineSymbolizer stroke="#ec2f5e" stroke-width="4" stroke-dasharray="6,2" />' + 
+    '<MinScaleDenominator>901</MinScaleDenominator>' +
+    '<MaxScaleDenominator>1600</MaxScaleDenominator>' +
+'</Rule>' +
+'<Rule>' +
+    '<LineSymbolizer stroke="#ec2f5e" stroke-width="2.5" stroke-dasharray="6,2" />' + 
+    '<MinScaleDenominator>1601</MinScaleDenominator>' +
+    '<MaxScaleDenominator>4000</MaxScaleDenominator>' +
+'</Rule>' +
+'<Rule>' +
+    '<LineSymbolizer stroke="#ec2f5e" stroke-width="1.5" stroke-dasharray="6,2" />' +  
+    '<MinScaleDenominator>4001</MinScaleDenominator>' +
+'</Rule>' +
+'</Style>' 
+
+var style_skola='<Style name="style_skola">' + 
+'<Rule>' +
+    '<MinScaleDenominator>1</MinScaleDenominator>' +
+    '<MaxScaleDenominator>1500</MaxScaleDenominator>' +
+    '<PointSymbolizer file= "./png_symbols/school.png" transform="scale(0.05,0.05)" />' + 
+'</Rule>' +
+'<Rule>' +
+    '<MinScaleDenominator>1501</MinScaleDenominator>' +
+    '<MaxScaleDenominator>3000</MaxScaleDenominator>' +
+    '<PointSymbolizer file= "./png_symbols/school.png" transform="scale(0.03,0.03)" />' + 
+'</Rule>' +
+'<Rule>' +
+    '<MinScaleDenominator>3001</MinScaleDenominator>' +
+    '<MaxScaleDenominator>6000</MaxScaleDenominator>' +
+    '<PointSymbolizer file= "./png_symbols/school.png" transform="scale(0.02,0.02)" />' + 
+'</Rule>' +
+'</Style>' 
+
+var style_zastavky='<Style name="style_zastavky">' + 
+'<Rule>' +
+    '<MinScaleDenominator>1</MinScaleDenominator>' +
+    '<MaxScaleDenominator>500</MaxScaleDenominator>' +
+    '<PointSymbolizer file= "./png_symbols/bus.png" transform="scale(0.07,0.07)" />' + 
+'</Rule>' +
+'<Rule>' +
+    '<MinScaleDenominator>501</MinScaleDenominator>' +
+    '<MaxScaleDenominator>1500</MaxScaleDenominator>' +
+    '<PointSymbolizer file= "./png_symbols/bus.png" transform="scale(0.05,0.05)" />' + 
+'</Rule>' +
+'<Rule>' +
+    '<MinScaleDenominator>1501</MinScaleDenominator>' +
+    '<MaxScaleDenominator>5000</MaxScaleDenominator>' +
+    '<PointSymbolizer file= "./png_symbols/bus.png" transform="scale(0.03,0.03)" />' + 
+'</Rule>' +
+'</Style>' 
+
+
+
 var schema = '<Map background-color="transparent" srs="'+proj+'">' +
                 (addBudovy ? style_budovy : '') +
                 (addCesty ? style_cesty : '') +
@@ -130,7 +200,17 @@ var schema = '<Map background-color="transparent" srs="'+proj+'">' +
                 (addLavicky ? style_lavicky : '') +
                 (addOdpad ? style_odpad : '') +
                 (addParkovisko ? style_parkovisko : '') +
+                (addChodniky ? style_chodniky : '') +
+                (addSkola ? style_skola : '') +
+                (addZastavky ? style_zastavky : '') +
 
+                '<Layer name="chodniky" srs="'+proj+'">' +
+                    '<StyleName>style_chodniky</StyleName>' +
+                    '<Datasource>' +
+                        '<Parameter name="file">' + path.join( __dirname, 'data/chodniky.shp' ) +'</Parameter>' +
+                        '<Parameter name="type">shape</Parameter>' +
+                    '</Datasource>' +
+                '</Layer>' +                
                 '<Layer name="cesty" srs="'+proj+'">' +
                     '<StyleName>style_cesty</StyleName>' +
                     '<Datasource>' +
@@ -159,6 +239,20 @@ var schema = '<Map background-color="transparent" srs="'+proj+'">' +
                            '<Parameter name="type">shape</Parameter>' +
                     '</Datasource>' +
                 '</Layer>' +    
+                '<Layer name="skola" srs="'+proj+'">' +
+                '<StyleName>style_skola</StyleName>' +
+                '<Datasource>' +
+                    '<Parameter name="file">' + path.join( __dirname, 'data/skola.shp' ) +'</Parameter>' +
+                       '<Parameter name="type">shape</Parameter>' +
+                '</Datasource>' +
+            '</Layer>' +
+            '<Layer name="zastavky" srs="'+proj+'">' +
+                '<StyleName>style_zastavky</StyleName>' +
+                '<Datasource>' +
+                    '<Parameter name="file">' + path.join( __dirname, 'data/zastavky.shp' ) +'</Parameter>' +
+                       '<Parameter name="type">shape</Parameter>' +
+                '</Datasource>' +
+            '</Layer>' +
                 '<Layer name="odpad" srs="'+proj+'">' +
                 '<StyleName>style_odpad</StyleName>' +
                 '<Datasource>' +

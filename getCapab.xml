@@ -56,12 +56,12 @@
  <!-- alias 5514 -->
 <CRS>EPSG:102067</CRS>
 <EX_GeographicBoundingBox>
-  <westBoundLongitude>17.869550</westBoundLongitude>
-  <eastBoundLongitude>17.917076</eastBoundLongitude>
-  <southBoundLatitude>48.722371</southBoundLatitude>
-  <northBoundLatitude>48.7512</northBoundLatitude>
+  <westBoundLongitude>17.883752</westBoundLongitude>
+  <eastBoundLongitude>17.905439</eastBoundLongitude>
+  <southBoundLatitude>48.738884</southBoundLatitude>
+  <northBoundLatitude>48.751180</northBoundLatitude>
 </EX_GeographicBoundingBox>
-<BoundingBox CRS="EPSG:5514" minx="-507668.121" miny="-1218115.828" maxx="-511572.982" maxy="-1222268.772"/>
+<BoundingBox CRS="EPSG:5514" minx="-508649.169" miny="-1219319.432" maxx="-510361.027" maxy="-1220536.518"/>
 </Layer>
 <Layer queryable="0">
 <Name>cesty</Name>
@@ -71,12 +71,12 @@
  <!-- alias 5514 -->
 <CRS>EPSG:102067</CRS>
 <EX_GeographicBoundingBox>
-  <westBoundLongitude>17.869550</westBoundLongitude>
-  <eastBoundLongitude>17.917076</eastBoundLongitude>
-  <southBoundLatitude>48.722371</southBoundLatitude>
-  <northBoundLatitude>48.7512</northBoundLatitude>
+  <westBoundLongitude>17.883752</westBoundLongitude>
+  <eastBoundLongitude>17.905439</eastBoundLongitude>
+  <southBoundLatitude>48.738884</southBoundLatitude>
+  <northBoundLatitude>48.751180</northBoundLatitude>
 </EX_GeographicBoundingBox>
-<BoundingBox CRS="EPSG:5514" minx="-507668.121" miny="-1218115.828" maxx="-511572.982" maxy="-1222268.772"/>  
+<BoundingBox CRS="EPSG:5514" minx="-508649.169" miny="-1219319.432" maxx="-510361.027" maxy="-1220536.518"/>  
     </Layer>
 <Layer queryable="0">
 <Name>lavicky</Name>
@@ -86,12 +86,12 @@
  <!-- alias 5514 -->
 <CRS>EPSG:102067</CRS>
 <EX_GeographicBoundingBox>
-  <westBoundLongitude>17.869550</westBoundLongitude>
-  <eastBoundLongitude>17.917076</eastBoundLongitude>
-  <southBoundLatitude>48.722371</southBoundLatitude>
-  <northBoundLatitude>48.7512</northBoundLatitude>
+  <westBoundLongitude>17.883752</westBoundLongitude>
+  <eastBoundLongitude>17.905439</eastBoundLongitude>
+  <southBoundLatitude>48.738884</southBoundLatitude>
+  <northBoundLatitude>48.751180</northBoundLatitude>
 </EX_GeographicBoundingBox>
-<BoundingBox CRS="EPSG:5514" minx="-507668.121" miny="-1218115.828" maxx="-511572.982" maxy="-1222268.772"/>
+<BoundingBox CRS="EPSG:5514" minx="-508649.169" miny="-1219319.432" maxx="-510361.027" maxy="-1220536.518"/>
     </Layer>    
  <Layer queryable="0">
 <Name>cintorin</Name>
@@ -101,12 +101,12 @@
  <!-- alias 5514 -->
 <CRS>EPSG:102067</CRS>
 <EX_GeographicBoundingBox>
-  <westBoundLongitude>17.869550</westBoundLongitude>
-  <eastBoundLongitude>17.917076</eastBoundLongitude>
-  <southBoundLatitude>48.722371</southBoundLatitude>
-  <northBoundLatitude>48.7512</northBoundLatitude>
+  <westBoundLongitude>17.883752</westBoundLongitude>
+  <eastBoundLongitude>17.905439</eastBoundLongitude>
+  <southBoundLatitude>48.738884</southBoundLatitude>
+  <northBoundLatitude>48.751180</northBoundLatitude>
 </EX_GeographicBoundingBox>
-<BoundingBox CRS="EPSG:5514" minx="-507668.121" miny="-1218115.828" maxx="-511572.982" maxy="-1222268.772"/>
+<BoundingBox CRS="EPSG:5514" minx="-508649.169" miny="-1219319.432" maxx="-510361.027" maxy="-1220536.518"/>
     </Layer>    
   <Layer queryable="0">
 <Name>odpad</Name>
@@ -116,12 +116,12 @@
  <!-- alias 5514 -->
 <CRS>EPSG:102067</CRS>
 <EX_GeographicBoundingBox>
-  <westBoundLongitude>17.869550</westBoundLongitude>
-  <eastBoundLongitude>17.917076</eastBoundLongitude>
-  <southBoundLatitude>48.722371</southBoundLatitude>
-  <northBoundLatitude>48.7512</northBoundLatitude>
+  <westBoundLongitude>17.883752</westBoundLongitude>
+  <eastBoundLongitude>17.905439</eastBoundLongitude>
+  <southBoundLatitude>48.738884</southBoundLatitude>
+  <northBoundLatitude>48.751180</northBoundLatitude>
 </EX_GeographicBoundingBox>
-<BoundingBox CRS="EPSG:5514" minx="-507668.121" miny="-1218115.828" maxx="-511572.982" maxy="-1222268.772"/>
+<BoundingBox CRS="EPSG:5514" minx="-508649.169" miny="-1219319.432" maxx="-510361.027" maxy="-1220536.518"/>
     </Layer> 
      <Layer queryable="0">
 <Name>parkovisko</Name>
@@ -131,13 +131,58 @@
  <!-- alias 5514 -->
 <CRS>EPSG:102067</CRS>
 <EX_GeographicBoundingBox>
-  <westBoundLongitude>17.869550</westBoundLongitude>
-  <eastBoundLongitude>17.917076</eastBoundLongitude>
-  <southBoundLatitude>48.722371</southBoundLatitude>
-  <northBoundLatitude>48.7512</northBoundLatitude>
+  <westBoundLongitude>17.883752</westBoundLongitude>
+  <eastBoundLongitude>17.905439</eastBoundLongitude>
+  <southBoundLatitude>48.738884</southBoundLatitude>
+  <northBoundLatitude>48.751180</northBoundLatitude>
 </EX_GeographicBoundingBox>
-<BoundingBox CRS="EPSG:5514" minx="-507668.121" miny="-1218115.828" maxx="-511572.982" maxy="-1222268.772"/>
+<BoundingBox CRS="EPSG:5514" minx="-508649.169" miny="-1219319.432" maxx="-510361.027" maxy="-1220536.518"/>
     </Layer>  
+     <Layer queryable="0">
+<Name>chodniky</Name>
+        <Title><![CDATA[Chodniky]]></Title>
+        <Abstract><![CDATA[]]></Abstract>
+<CRS>EPSG:5514</CRS>
+ <!-- alias 5514 -->
+<CRS>EPSG:102067</CRS>
+<EX_GeographicBoundingBox>
+  <westBoundLongitude>17.883752</westBoundLongitude>
+  <eastBoundLongitude>17.905439</eastBoundLongitude>
+  <southBoundLatitude>48.738884</southBoundLatitude>
+  <northBoundLatitude>48.751180</northBoundLatitude>
+</EX_GeographicBoundingBox>
+<BoundingBox CRS="EPSG:5514" minx="-508649.169" miny="-1219319.432" maxx="-510361.027" maxy="-1220536.518"/>
+    </Layer> 
+  <Layer queryable="0">
+<Name>skola</Name>
+        <Title><![CDATA[Skola]]></Title>
+        <Abstract><![CDATA[]]></Abstract>
+<CRS>EPSG:5514</CRS>
+ <!-- alias 5514 -->
+<CRS>EPSG:102067</CRS>
+<EX_GeographicBoundingBox>
+  <westBoundLongitude>17.883752</westBoundLongitude>
+  <eastBoundLongitude>17.905439</eastBoundLongitude>
+  <southBoundLatitude>48.738884</southBoundLatitude>
+  <northBoundLatitude>48.751180</northBoundLatitude>
+</EX_GeographicBoundingBox>
+<BoundingBox CRS="EPSG:5514" minx="-508649.169" miny="-1219319.432" maxx="-510361.027" maxy="-1220536.518"/>
+    </Layer> 
+  <Layer queryable="0">
+<Name>zastavky</Name>
+        <Title><![CDATA[Zastavky]]></Title>
+        <Abstract><![CDATA[]]></Abstract>
+<CRS>EPSG:5514</CRS>
+ <!-- alias 5514 -->
+<CRS>EPSG:102067</CRS>
+<EX_GeographicBoundingBox>
+  <westBoundLongitude>17.883752</westBoundLongitude>
+  <eastBoundLongitude>17.905439</eastBoundLongitude>
+  <southBoundLatitude>48.738884</southBoundLatitude>
+  <northBoundLatitude>48.751180</northBoundLatitude>
+</EX_GeographicBoundingBox>
+<BoundingBox CRS="EPSG:5514" minx="-508649.169" miny="-1219319.432" maxx="-510361.027" maxy="-1220536.518"/>
+    </Layer> 
   </Capability>
 </WMS_Capabilities>
 
