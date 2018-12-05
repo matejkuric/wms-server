@@ -1,18 +1,19 @@
-var path = require("path");
-var fs = require("fs");
-var mapnik = require("mapnik");
+var path = require("path"); //načítanie balíka pre prácu s cestami
+var fs = require("fs"); // načítanie balíka node file system
+var mapnik = require("mapnik"); //knižnica na rendovanie mapy; Mapnik je súprava nástrojov, ktorá sa používa na interpretáciu máp
 
-mapnik.register_default_fonts();
-mapnik.register_default_input_plugins();
+mapnik.register_default_fonts(); //registrovanie základných fontov do mapniku
+mapnik.register_default_input_plugins(); //registrovanie základných pluginov do mapniku
 
-function generateImage(arg, sendFile){
-var width = Number(arg.WIDTH);
-var height = Number(arg.HEIGHT);
+function generateImage(arg, sendFile){  //zadefinovanie funckie, ktorou sa vygeneruje mapový obraz
+var width = Number(arg.WIDTH);  //definovanie šírky mapového obrazu v pix
+var height = Number(arg.HEIGHT);  //definovanie výšky mapového obrazu v pix
 var BBOX = arg.BBOX.split(',').map(function(elem){
-    return Number(elem)});
-var layers = (arg.LAYERS).split(',');
-var map = new mapnik.Map(width, height);
+    return Number(elem)}); //boombox - definovanie súradnicových rozmerov mapového obrazu; dolný ľavý roh a horný pravý roh
+var layers = (arg.LAYERS).split(',');  //zadefinovanie čiarky ako rozdelenie popisu vrstiev (napr. budovy, cesty,...)
+var map = new mapnik.Map(width, height); //definovanie premennej, ktorá bude obsahovať nové objekty mapového obrazu s definovanou šírkou a výškou
 
+//definovanie premenných, ktoré obsahujú vrstvy (vrstva sa premennej priradí podľa textu)
 var addBudovy = arg.LAYERS.includes('budovy');
 var addCesty = arg.LAYERS.includes('cesty');
 var addLavicky = arg.LAYERS.includes('lavicky');
@@ -23,22 +24,24 @@ var addChodniky = arg.LAYERS.includes('chodniky');
 var addSkola = arg.LAYERS.includes('skola');
 var addZastavky = arg.LAYERS.includes('zastavky');
 
+//definovanie premennej, ktorá definuje projekciu, resp. súradnicový systém
 var proj = "+proj=krovak +lat_0=49.5 +lon_0=24.83333333333333 +alpha=30.28813972222222 +k=0.9999 +x_0=0 +y_0=0 +ellps=bessel +towgs84=589,76,480,0,0,0,0 +units=m +no_defs";
 
-var style_budovy='<Style name="style_budovy">' + 
-'<Rule>' +
-    '<LineSymbolizer stroke="#000000" stroke-width="2" />' + 
-    '<PolygonSymbolizer fill="#666666"  />' + 
+//zadefinovanie štylov jednotlivých vrstiev
+var style_budovy='<Style name="style_budovy">' +   //definovanie premennej, ktorá bude obsahovať štýlovacie parametre a názov určitého štýlu
+'<Rule>' +  //tagy, do ktorých budű zapísané štýlovacie parametre vrstvy
+    '<LineSymbolizer stroke="#000000" stroke-width="2" />' +  //definovanie štýlu línii 
+    '<PolygonSymbolizer fill="#666666"  />' +   //definovanie štýlu polygonov
 '</Rule>' +
 '</Style>' 
 
 var style_cesty='<Style name="style_cesty">' + 
 '<Rule>' +
-    '<LineSymbolizer offset="7" stroke="#333333" stroke-width="3" />' + 
+    '<LineSymbolizer offset="7" stroke="#333333" stroke-width="3" />' + //definovanie štýlu línii 
     '<LineSymbolizer offset="-7" stroke="#333333" stroke-width="3" />' + 
     '<LineSymbolizer stroke="#ff9900" stroke-width="11" />' + 
-    '<MinScaleDenominator>1</MinScaleDenominator>' +
-    '<MaxScaleDenominator>300</MaxScaleDenominator>' +
+    '<MinScaleDenominator>1</MinScaleDenominator>' +  //minimálna mierka, v ktorej určitý štýl bude zobrazený
+    '<MaxScaleDenominator>300</MaxScaleDenominator>' + //maximálna mierka, v ktorej určitý štýl bude zobrazený
 '</Rule>' +
 '<Rule>' +
     '<LineSymbolizer offset="5" stroke="#333333" stroke-width="2.8" />' + 
@@ -71,8 +74,8 @@ var style_lavicky='<Style name="style_lavicky">' +
 '<Rule>' +
     '<MinScaleDenominator>1</MinScaleDenominator>' +
     '<MaxScaleDenominator>1500</MaxScaleDenominator>' +
-    '<PointSymbolizer file= "./png_symbols/bench2.png" transform="scale(0.04,0.04)"/>' + 
-    "<Filter> [STAV] = 'Nepoškodená' </Filter>" +
+    '<PointSymbolizer file= "./png_symbols/bench2.png" transform="scale(0.04,0.04)"/>' +   //definovanie symbolu, ktorým sa budú zobrazovať bodové prvky (v tomto prípade bol načítaný obrázok)
+    "<Filter> [STAV] = 'Nepoškodená' </Filter>" +  //výber objektov podľa hodnoty určitého atribútu
     '</Rule>' +
 '<Rule>' +
     '<MinScaleDenominator>1501</MinScaleDenominator>' +
@@ -108,7 +111,7 @@ var style_parkovisko='<Style name="style_parkovisko">' +
     '<PolygonSymbolizer fill="#b5d0d0"  />' + 
 '</Rule>' +
 '<Rule>' +
-    '<PolygonPatternSymbolizer file= "./png_symbols/parking4.png"/>' +
+    '<PolygonPatternSymbolizer file= "./png_symbols/parking4.png"/>' +   //definovanie vzoru, ktorý sa bude nachádzať v plošných prvkov
     '<MinScaleDenominator>1</MinScaleDenominator>' +
     '<MaxScaleDenominator>290</MaxScaleDenominator>' +
 '</Rule>' +
@@ -191,10 +194,10 @@ var style_zastavky='<Style name="style_zastavky">' +
 '</Rule>' +
 '</Style>' 
 
-
-
-var schema = '<Map background-color="transparent" srs="'+proj+'">' +
-                (addBudovy ? style_budovy : '') +
+//definovanie schemy mapnik XML v premennej
+var schema = '<Map background-color="transparent" srs="'+proj+'">' +  //definovanie farby (alebo nejakého motívu) pre pozadie mapy a projekcie mapy
+                (addBudovy ? style_budovy : '') + //ternárny operátor - ak je splnená podmienka, t.j. ak ne add_____ definovaná, 
+                                                  //tak sa vráti príslušný štýl, ak nie je, nič sa nevykoná
                 (addCesty ? style_cesty : '') +
                 (addCintorin ? style_cintorin : '') +           
                 (addLavicky ? style_lavicky : '') +
@@ -204,11 +207,12 @@ var schema = '<Map background-color="transparent" srs="'+proj+'">' +
                 (addSkola ? style_skola : '') +
                 (addZastavky ? style_zastavky : '') +
 
-                '<Layer name="chodniky" srs="'+proj+'">' +
-                    '<StyleName>style_chodniky</StyleName>' +
-                    '<Datasource>' +
-                        '<Parameter name="file">' + path.join( __dirname, 'data/chodniky.shp' ) +'</Parameter>' +
-                        '<Parameter name="type">shape</Parameter>' +
+               
+                '<Layer name="chodniky" srs="'+proj+'">' +    //definovanie projekcie určitej vrstve
+                    '<StyleName>style_chodniky</StyleName>' +  //pridelenie príslušného štýlu
+                    '<Datasource>' +  //definovanie zdroju dát
+                        '<Parameter name="file">' + path.join( __dirname, 'data/chodniky.shp' ) +'</Parameter>' + //cesta k vrstve
+                        '<Parameter name="type">shape</Parameter>' + //definovanie typu vrstvy
                     '</Datasource>' +
                 '</Layer>' +                
                 '<Layer name="cesty" srs="'+proj+'">' +
@@ -273,37 +277,37 @@ var schema = '<Map background-color="transparent" srs="'+proj+'">' +
 
 
 
-map.fromString(schema, function(err, map) {
+map.fromString(schema, function(err, map) { //použitie funkccie from String, ktorou načítame XML schemu
   if (err) {
-      console.log('Error: ' + err.message)
+      console.log('Error: ' + err.message) //výpis chyby (ak nejaká nastala)
   }
 
-  map.zoomToBox(BBOX);
+  map.zoomToBox(BBOX); //približenie mapy na definovaný boombox (BBox)
 
-  var im = new mapnik.Image(width, height);
+  var im = new mapnik.Image(width, height); //definovanie nového mapnik mapového obrázku s rovnakou šírkou a výškou
 
-  map.render(im, function(err, im) {
+  map.render(im, function(err, im) {  //vygenerovanie mapového obrázku z premennej im
       
     if (err) {
-        console.log('Error: ' + err.message)
+        console.log('Error: ' + err.message) //výpis chyby (ak nejaká nastala)
     }
 
-    im.encode("png", function(err, buffer) {
+    im.encode("png", function(err, buffer) {  //zakóduje naš mapový obraz do formátu .png
       if (err) {
-         console.log('Error: ' + err.message)
+         console.log('Error: ' + err.message)  //výpis chyby (ak nejaká nastala)
       }
 
-      fs.writeFile(
-        path.join(__dirname, "out/map.png"),
-        buffer,
+      fs.writeFile(  //použíjeme node file system súbor ''fs'' na uloženie súboru do určitej súborovej cesty
+        path.join(__dirname, "out/map.png"), //kombinácia adresára, v ktorom sa nachádza skript s adresou, do ktorej chceme uložiť obrázok mapy
+        buffer, //vloží obrazový buffer vytvorený metódou im.encode mapnika
         function(err) {
           if (err) {
-              console.log('Error: ' + err.message)
+              console.log('Error: ' + err.message)  //výpis chyby (ak nejaká nastala)
           }
           console.log('Image generated into: ' + 
-            path.join(__dirname, "out/map.png")
+            path.join(__dirname, "out/map.png") //vypíše adresu, do ktorej sa uložil mapový obrázok
             );
-            sendFile(path.join(__dirname ,"out/map.png"));
+            sendFile(path.join(__dirname ,"out/map.png")); //cesta k vygenerovanému mapovému obrázku
         }
         );
       });
@@ -311,4 +315,4 @@ map.fromString(schema, function(err, map) {
   })
   };
   
-  module.exports = generateImage;
+  module.exports = generateImage; //definovanie modula, ktorý bude importovaný do skriptu servera
